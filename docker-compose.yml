@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  snapcart:
+    build: .
+    container_name: snapcart
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
