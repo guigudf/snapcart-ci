@@ -8,23 +8,18 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
+                bat 'docker build -t %IMAGE_NAME%:%IMAGE_TAG% .'
             }
         }
 
     }
 
     post {
+
         success {
-            echo 'Build succeeded. Image: ${IMAGE_NAME}:${IMAGE_TAG} built successfully.'
+            echo "Build succeeded. Image: ${IMAGE_NAME}:${IMAGE_TAG} built successfully."
         }
 
         failure {
