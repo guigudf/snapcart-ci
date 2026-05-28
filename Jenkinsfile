@@ -24,4 +24,4 @@ pipeline {
             echo "Build failed"
         }
     }
-}
+}//
