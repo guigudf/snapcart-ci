@@ -10,18 +10,18 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
             }
         }
     }
 
     post {
         success {
-            echo "Build succeeded. Image: ${IMAGE_NAME}:${IMAGE_TAG} built successfully."
+            echo "Build succeeded: ${IMAGE_NAME}:${IMAGE_TAG}"
         }
 
         failure {
-            echo 'Build failed. Check the console output above.'
+            echo "Build failed"
         }
     }
 }
