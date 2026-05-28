@@ -1,4 +1,4 @@
-pipeline {
+pipeline { //trigger jenkins set
     agent any
 
     environment {
